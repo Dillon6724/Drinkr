@@ -51,12 +51,6 @@ app.controller("BarController", [ "$http", "$scope", function ($http, $scope) {
     return colorArray[num]
   }
 
-  ctrl.icon = function () {
-    var iconArray =  ["cocktail.png", "wine.png"]
-    var num = Math.floor((Math.random() * iconArray.length));
-    return iconArray[num]
-  }
-
   this.metersToMiles = function (m) {
     var miles = (m * 0.00062137).toFixed(2);
     return miles
@@ -136,6 +130,13 @@ app.controller("BarController", [ "$http", "$scope", function ($http, $scope) {
 app.controller("ClubController", [ "$http", "$scope", function ($http, $scope) {
   ctrl = this
 
+  ctrl.color = function () {
+    var colorArray =  [ '#C2F0E9', '#D2C2F0',  '#E0F0C2',  '#F0C2C9',  '#F0DFC2',  '#C2C3F0', '#E1C2F0',  '#D1F0C2',  '#C1C1E3',  '#C1E0E3',  '#E3ACAC', '#E3ACD4',  '#ACE3C0',  '#ACE3D5',  '#E3C2AC',  '#E3ACCB', '#D2C2F0',  '#E0F0C2',  '#F0C2C9',  '#F0DFC2']
+    var num = Math.floor((Math.random() * colorArray.length));
+    return colorArray[num]
+  }
+
+
   this.metersToMiles = function (m) {
     var miles = (m * 0.00062137).toFixed(3);
     return miles
@@ -178,6 +179,7 @@ app.controller("ClubController", [ "$http", "$scope", function ($http, $scope) {
     }).success(function(data, textStats, XMLHttpRequest) {
         $scope.$apply(function () {
           $scope.clubCtrl.clubs = data.businesses;
+          $('.loading-container').empty();
           console.log(data.businesses);
 
         });

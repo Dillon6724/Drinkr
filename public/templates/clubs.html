@@ -1,11 +1,35 @@
-<h1 class="title">title</h1>
-<div class="bar-container">
-  <div class="bar" ng-repeat="club in clubCtrl.clubs">
-    <ul class="bar-info">
-      <li> Name: {{club.name}}</li>
-      <li>Rating: {{club.rating}}</li>
-      <li>{{clubCtrl.metersToMiles(club.distance)}} miles away</li>
-      <a target="_blank" href="https://www.google.com/maps/dir//{{club.location.address[0]}} {{club.location.city}} {{club.location.state_code}}/">LINK</a>
-    </ul>
+  <div class="bar-container">
+    <div style="background-color: {{clubCtrl.color()}};"class="bar" ng-repeat="club in clubCtrl.clubs">
+      <img class="icon" src="cocktail.png"/>
+      <ul class="bar-info">
+        <li class="info-item">{{club.name}}</li>
+        <li class="info-item">{{club.rating}} stars</li>
+        <li class="info-item">{{clubCtrl.metersToMiles(club.distance)}} miles away</li>
+        <a target="_blank" href="https://www.google.com/maps/dir//{{bar.location.address[0]}} {{bar.location.city}} {{bar.location.state_code}}/">directions</a>
+      </ul>
+    </div>
   </div>
-</div>
+  <div class="loading-container">
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+    <img class="loading" src="loading.gif" />
+  </div>

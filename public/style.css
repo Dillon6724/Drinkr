@@ -72,3 +72,102 @@ ul {
 	transition-duration: .5s;
 	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navigation {
+  /* critical sizing and position styles */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+
+  /* non-critical appearance styles */
+  list-style: none;
+  background: grey;
+}
+
+/* Navigation Menu - List items */
+.nav-item {
+  /* non-critical appearance styles */
+  width: 80%;
+}
+
+.nav-item a {
+  /* non-critical appearance styles */
+  display: block;
+  padding: 1em;
+  color: white;
+  font-size: 5em;
+  text-decoration: none;
+  transition: color 0.2s, background 0.5s;
+}
+
+/* Site Wrapper - Everything that isn't navigation */
+.site-wrap {
+  /* Critical position and size styles */
+  min-height: 100%;
+  min-width: 100%;
+  background-color: white; /* Needs a background or else the nav will show through */
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+
+  /* non-critical apperance styles */
+  padding: 4em;
+  background-size: 200%;
+}
+
+/* Nav Trigger */
+.nav-trigger {
+  /* critical styles - hide the checkbox input */
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+label[for="nav-trigger"] {
+  /* critical positioning styles */
+  position: fixed;
+  left: 15px; top: 15px;
+  z-index: 2;
+
+  /* non-critical apperance styles */
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  background-image: url("http://kimjoyfox.com/wp-content/uploads/2015/06/hamburger_icon.png");
+  background-size: contain;
+}
+
+/* Make the Magic Happen */
+.nav-trigger + label, .site-wrap {
+  transition: color 0.2s;
+}
+
+.nav-trigger:checked + label {
+  background-color: white
+}
+
+.nav-trigger:checked ~ .site-wrap {
+  left: 70%;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
