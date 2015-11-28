@@ -119,7 +119,7 @@ app.controller("BarController", [ "$http", "$scope", function ($http, $scope) {
       timeout           : 27000
     };
 
-    navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
+    navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
   })
 }])
 
@@ -205,6 +205,6 @@ app.controller("ClubController", [ "$http", "$scope", function ($http, $scope) {
       timeout           : 27000
     };
 
-    navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
+    navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
   })
 }])
