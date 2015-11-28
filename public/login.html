@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<h1>Login</h1>
+<% if (flash.incorrectPassword) { %>
+         <p class = "errormessage"><%=flash.incorrectPassword%></p>
+         <%} %>
+         <% if (flash.userDoesntExist) { %>
+         <p class = "errormessage"><%=flash.userDoesntExist%></p>
+<%} %>
+<form  action="/session" method="post">
+  <input placeholder="email"type="email" name="user[email]">
+  <input placeholder="password"type="password" name="user[password]">
+  <input type="submit">
+</form>
+
+<h1>Signup</h1>
+<% if (flash.duplicateName) { %>
+       <p class = "errormessage"><%= flash.duplicateName %></p>
+       <%} %>
+       <% if (flash.needPassword) { %>
+       <p class = "errormessage"><%= flash.needPassword %></p>
+       <%} %>
+       <% if (flash.needUser) { %>
+       <p class = "errormessage"><%= flash.needUser %></p>
+       <%} %>
+<form  action="/user/new" method="post">
+  <input placeholder="email" type="email" name="user[email]">
+  <input placeholder="password"type="password" name="user[password]">
+  <input type="submit">
+</form>

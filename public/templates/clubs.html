@@ -1,0 +1,11 @@
+<h1 class="title">title</h1>
+<div class="bar-container">
+  <div class="bar" ng-repeat="club in clubCtrl.clubs">
+    <ul class="bar-info">
+      <li> Name: {{club.name}}</li>
+      <li>Rating: {{club.rating}}</li>
+      <li>{{clubCtrl.metersToMiles(club.distance)}} miles away</li>
+      <a target="_blank" href="https://www.google.com/maps/dir//{{club.location.address[0]}} {{club.location.city}} {{club.location.state_code}}/">LINK</a>
+    </ul>
+  </div>
+</div>
