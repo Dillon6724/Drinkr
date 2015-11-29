@@ -160,11 +160,11 @@ ul {
 }
 
 .burger {
-  background-color: powderblue;
+  background-color: #B4DED6 ;
   border-radius: 20%;
   position: fixed;
-  top: 46px;
-  left: 28px;
+  top: 24px;
+  left: 46px;
   z-index: 20;
-  width: 6%;
+  width: 11%;
 }
