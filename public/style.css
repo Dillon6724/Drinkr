@@ -16,19 +16,19 @@ ul {
   color: grey;
   background-color: #f1f1f1;
   width: 100%;
-  font-size: 60px;
+  font-size: 100px;
   text-align: center;
   top: 0px;
   left: 0px;
-  height: 75px;
-  line-height: 90px;
+  height: 150px;
+  line-height: 165px;
   position: fixed;
   z-index: 10;
 }
 
 .bar-container, .loading-container {
   width: 100%;
-  margin-top: 4%;
+  margin-top: 12%;
 }
 
 .icon {
@@ -47,6 +47,8 @@ ul {
   border-radius: 8%;
   box-shadow: inset 0 2em 3em -2em white;
   margin-bottom: 1.5%;
+  overflow: scroll;
+  background-color: #B4DED6;
 }
 
 .loading {
@@ -58,13 +60,20 @@ ul {
 .bar-info {
   color: grey;
   position: relative;
-  margin-top: -67%;
+  margin-top: -68%;
 }
+
 
 .info-item {
   font-size: 60px;
+  margin-bottom: 7%;
+}
+
+.extra-info-item {
+  font-size: 60px;
   margin-bottom: 2%;
 }
+
 
 .directions {
   border: 1px solid grey;
@@ -78,9 +87,46 @@ ul {
   margin-top: 2%;
 }
 
+.name, .extra-name {
+  font-weight: bold;
+  text-decoration: underline;
+}
 
+.extra-name {
+  padding: 2%;
+}
 
+.rating, .distance, .category {
+  font-size: 40px;
+}
 
+.fadein {
+  animation: fade 1s;
+}
+
+.slideup {
+  animation: slideup 4s;
+  background-color: blue;
+
+}
+
+@keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes slideup {
+  0% {max-height: 0;}
+  100% {max-height: 300px;}
+}
+
+.extra-info {
+  color: grey;
+  background-color: #D6CCED;
+  padding-bottom: 21%;
+  margin-top: -75%;
+
+}
 
 
 

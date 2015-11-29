@@ -1,12 +1,24 @@
   <div class="bar-container">
-    <div style="background-color: pink;"class="bar" ng-repeat="bar in barCtrl.bars | orderBy: '-rating'">
-      <img class="icon" src="cocktail.png"/>
-      <ul class="bar-info">
-        <li class="info-item">{{bar.name}}</li>
-        <li class="info-item">{{bar.rating}} stars</li>
-        <li class="info-item">{{barCtrl.metersToMiles(bar.distance)}} miles away</li>
-        <a target="_blank" class="directions" href="https://www.google.com/maps/dir//{{bar.location.address[0]}} {{bar.location.city}} {{bar.location.state_code}}/">directions</a>
-      </ul>
+    <div ng-click="more = !more " class="bar fadein" ng-repeat="bar in barCtrl.bars">
+      <div ng-show="more">
+        <img class="icon" src="cocktail.png"/>
+        <ul  class="extra-info">
+          <li class="extra-info-item extra-name">{{bar.name}}</li>
+          <li class="extra-info-item">categories</li>
+          <li class="extra-info-item category" ng-repeat="category in bar.categories">{{category[0]}}</li>
+          <li class="extra-info-item">phone</li>
+          <li class="extra-info-item category">{{bar.display_phone}}</li>
+        </ul>
+      </div>
+      <div ng-show="!more" >
+        <img class="icon" src="cocktail.png"/>
+        <ul class="bar-info">
+          <li class="info-item name">{{bar.name}}</li>
+          <li class="info-item distance">{{barCtrl.metersToMiles(bar.distance)}} miles away</li>
+          <li class="info-item rating"><img src="{{bar.rating_img_url_large}}" /></li>
+          <a target="_blank" class="directions" href="https://www.google.com/maps/dir//{{bar.location.address[0]}} {{bar.location.city}} {{bar.location.state_code}}/">directions</a>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="loading-container">

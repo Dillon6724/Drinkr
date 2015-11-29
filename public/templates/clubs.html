@@ -1,5 +1,11 @@
   <div class="bar-container">
-    <div style="background-color: {{clubCtrl.color()}};"class="bar" ng-repeat="club in clubCtrl.clubs">
+    <div ng-click="more = !more " class="bar" ng-repeat="club in clubCtrl.clubs">
+      <div ng-show="more">
+        <ul class="extra-info">
+          <li class="info-item">categories</li>
+          <li class="info-item category" ng-repeat="category in club.categories">{{category[0]}}</li>
+        </ul>
+      </div>
       <img class="icon" src="cocktail.png"/>
       <ul class="bar-info">
         <li class="info-item">{{club.name}}</li>
