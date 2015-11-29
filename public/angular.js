@@ -138,7 +138,7 @@ app.controller("ClubController", [ "$http", "$scope", function ($http, $scope) {
 
 
   this.metersToMiles = function (m) {
-    var miles = (m * 0.00062137).toFixed(3);
+    var miles = (m * 0.00062137).toFixed(2);
     return miles
   }
 

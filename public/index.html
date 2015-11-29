@@ -17,25 +17,27 @@
   <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <ul class="navigation">
-    <li class="nav-item"><a>search</a><hr/></li>
-    <li class="nav-item"><a href="/">bars</a></li>
-    <li class="nav-item"><a href="/clubs">clubs</a></li>
-    <li class="nav-item"><a href="/clubs">sports bars</a></li>
-    <li class="nav-item"><a href="/gay">gay bars</a></li>
-    <li class="nav-item"><a href="/dive">dive bars</a></li>
-        <li class="nav-item"><a href="/karaoke">karaoke bars</a></li>
 
-</ul>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger"></label>
+        <ul class="menu">
+          <li class="menu-trigger nav-item"><a class="nav-link">search</a><hr/></li>
+          <li class="menu-trigger nav-item"><a class="nav-link" href="/">bars</a></li>
+          <li class="menu-trigger nav-item"><a class="nav-link" href="/clubs">clubs</a></li>
+          <li class="menu-trigger nav-item"><a class="nav-link" href="/sports">sports bars</a></li>
+          <li class="menu-trigger nav-item"><a class="nav-link" href="/gay">gay bars</a></li>
+          <li class="menu-trigger nav-item"><a class="nav-link" href="/dive">dive bars</a></li>
+          <li class="menu-trigger nav-item"><a class="nav-link" href="/karaoke">karaoke bars</a></li>
+        </ul>
 
-<div class="site-wrap">
-  <h1 class="title">drinker</h1>
 
-  <div ng-view></div>
-</div>
+
+    <h1 class="menu-trigger title">drinker</h1>
+
+    <div ng-view></div>
+
+  <script type="text/javascript" src="app.js">
+
+  </script>
   <script type="text/javascript" src="angular.js"></script>
 </body>
 </html>

@@ -2,17 +2,22 @@
     <div ng-click="more = !more " class="bar" ng-repeat="club in clubCtrl.clubs">
       <div ng-show="more">
         <ul class="extra-info">
-          <li class="info-item">categories</li>
-          <li class="info-item category" ng-repeat="category in club.categories">{{category[0]}}</li>
+          <li class="extra-info-item extra-name">{{bar.name}}</li>
+          <li class="extra-info-item">categories</li>
+          <li class="extra-info-item category" ng-repeat="category in club.categories">{{category[0]}}</li>
+          <li class="extra-info-item">phone</li>
+          <li class="extra-info-item category">{{club.display_phone}}</li
         </ul>
       </div>
-      <img class="icon" src="cocktail.png"/>
-      <ul class="bar-info">
-        <li class="info-item">{{club.name}}</li>
-        <li class="info-item">{{club.rating}} stars</li>
-        <li class="info-item">{{clubCtrl.metersToMiles(club.distance)}} miles away</li>
-        <a target="_blank" href="https://www.google.com/maps/dir//{{bar.location.address[0]}} {{bar.location.city}} {{bar.location.state_code}}/">directions</a>
-      </ul>
+      <div ng-show="!more">
+        <img class="icon" src="cocktail.png"/>
+        <ul class="bar-info">
+          <li class="info-item name">{{club.name}}</li>
+          <li class="info-item distance"><img src="{{club.rating_img_url_large}}"/></li>
+          <li class="info-item rating">{{clubCtrl.metersToMiles(club.distance)}} miles away</li>
+          <a target="_blank" class="directions" href="https://www.google.com/maps/dir//{{bar.location.address[0]}} {{bar.location.city}} {{bar.location.state_code}}/">directions</a>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="loading-container">

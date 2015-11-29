@@ -13,7 +13,7 @@ ul {
 }
 
 .title {
-  color: grey;
+  color: #6E6E6E;
   background-color: #f1f1f1;
   width: 100%;
   font-size: 100px;
@@ -27,8 +27,9 @@ ul {
 }
 
 .bar-container, .loading-container {
-  width: 100%;
-  margin-top: 12%;
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 17%;
 }
 
 .icon {
@@ -58,7 +59,7 @@ ul {
 }
 
 .bar-info {
-  color: grey;
+  color: #6E6E6E;
   position: relative;
   margin-top: -68%;
 }
@@ -76,11 +77,11 @@ ul {
 
 
 .directions {
-  border: 1px solid grey;
+  border: 1px solid #6E6E6E;
   border-radius: 10%;
   padding: 1%;
   text-decoration: none;
-  color: grey;
+  color: #6E6E6E;
   font-size: 40px;
   background-color: #f2f2f2;
   z-index: 5;
@@ -121,102 +122,39 @@ ul {
 }
 
 .extra-info {
-  color: grey;
+  color: #6E6E6E;
   background-color: #D6CCED;
   padding-bottom: 21%;
   margin-top: -75%;
 
 }
 
-
-
-
-
-
-
-
-
-
-.navigation {
-  /* critical sizing and position styles */
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-
-  /* non-critical appearance styles */
-  list-style: none;
-  background: grey;
-}
-
-/* Navigation Menu - List items */
 .nav-item {
-  /* non-critical appearance styles */
-  width: 80%;
-}
-
-.nav-item a {
-  /* non-critical appearance styles */
-  display: block;
-  padding: 1em;
-  color: white;
-  font-size: 5em;
-  text-decoration: none;
-  transition: color 0.2s, background 0.5s;
-}
-
-/* Site Wrapper - Everything that isn't navigation */
-.site-wrap {
-  /* Critical position and size styles */
-  min-height: 100%;
-  min-width: 100%;
-  background-color: white; /* Needs a background or else the nav will show through */
   position: relative;
-  top: 0;
-  bottom: 100%;
-  left: 0;
-  z-index: 1;
+  z-index: 11;
+  margin-top: 7%;
+  margin-left: 4%;
 
-  /* non-critical apperance styles */
-  padding: 4em;
-  background-size: 200%;
 }
 
-/* Nav Trigger */
-.nav-trigger {
-  /* critical styles - hide the checkbox input */
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
+.nav-link {
+  color: ghostwhite;
+  font-size: 70px;
+  text-decoration: none;
 }
 
-label[for="nav-trigger"] {
-  /* critical positioning styles */
+.menu {
+  width: 50%;
   position: fixed;
-  left: 15px; top: 15px;
-  z-index: 2;
-
-  /* non-critical apperance styles */
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
-  background-image: url("http://kimjoyfox.com/wp-content/uploads/2015/06/hamburger_icon.png");
-  background-size: contain;
+  background-color: #666666;
+  height: 50vh;
+  z-index: 10;
+  left: -900px;
+  border-radius: 10%;
 }
 
-/* Make the Magic Happen */
-.nav-trigger + label, .site-wrap {
-  transition: color 0.2s;
-}
-
-.nav-trigger:checked + label {
-  background-color: white
-}
-
-.nav-trigger:checked ~ .site-wrap {
-  left: 70%;
-  box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+.menu-hide {
+  z-index: 30;
+  top: 130px;
+  left: 10px;
 }
