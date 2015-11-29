@@ -7,15 +7,6 @@ var mongoose = require('mongoose'),
     Schema   = mongoose.Schema,
     User     = require('./models/user.js');
 
-var verifyLogIn = function (req, res, next) {
-	if (req.session.currentUser){
-		next();
-	} else {
-		res.redirect(302, "/login");
-	}
-};
-
-
 ///////////////////////////////////////////////////////////
 /////////////           ROUTES             ////////////////
 ///////////////////////////////////////////////////////////
@@ -83,14 +74,38 @@ server.get("/login", function(req, res) {
   })
 })
 
-// get index if verifyLogIn returns true or it redirects to login page
-server.get("/", verifyLogIn, function (req, res) {
+server.get("/",  function (req, res) {
   res.sendFile("index.html", {
     root: __dirname + "/public/"
   })
 })
 
-server.get("/clubs", verifyLogIn, function (req, res) {
+server.get("/clubs", function (req, res) {
+  res.sendFile("index.html", {
+    root: __dirname + "/public/"
+  })
+})
+
+server.get("/sports", function (req, res) {
+  res.sendFile("index.html", {
+    root: __dirname + "/public/"
+  })
+})
+
+server.get("/gay", function (req, res) {
+  res.sendFile("index.html", {
+    root: __dirname + "/public/"
+  })
+})
+
+server.get("/dive", function (req, res) {
+  res.sendFile("index.html", {
+    root: __dirname + "/public/"
+  })
+})
+
+
+server.get("/karaoke", function (req, res) {
   res.sendFile("index.html", {
     root: __dirname + "/public/"
   })

@@ -23,14 +23,32 @@ app.config(['$routeProvider', '$locationProvider',
       templateUrl: 'templates/clubs.html',
       controller: 'ClubController',
       controllerAs: 'clubCtrl'
+    }).
+    when('/sports', {
+      templateUrl: 'templates/sports.html',
+      controller: 'SportsController',
+      controllerAs: 'sportCtrl'
+    }).
+    when('/gay', {
+      templateUrl: 'templates/gay.html',
+      controller: 'GayController',
+      controllerAs: 'gayCtrl'
+    }).
+    when('/dive', {
+      templateUrl: 'templates/dive.html',
+      controller: 'DiveController',
+      controllerAs: 'diveCtrl'
+    }).
+    when('/karaoke', {
+      templateUrl: 'templates/karaoke.html',
+      controller: 'KaraokeController',
+      controllerAs: 'karaokeCtrl'
     })
 }]);
 
-
+///////////    GLOBAL VARIABLES    ///////////
 var latitude;
 var longitude;
-// var googlekey = 'AIzaSyBAuDke1dC1ZniEqPJ_Rv7wfbo3zJbED2w', "AIzaSyAtuHwPlG6AvcHUugdhp99dT1FCAEWSSWs"
-
 var yelps = [];
 var auth = {
     consumerKey: "-7RT9CltQThTiOwIYunmzA",
@@ -42,14 +60,15 @@ var auth = {
     }
 };
 
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////        BAR CONTROLLER       /////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 app.controller("BarController", [ "$http", "$scope", function ($http, $scope) {
   ctrl = this
-
-  ctrl.color = function () {
-    var colorArray =  [ '#C2F0E9', '#D2C2F0',  '#E0F0C2',  '#F0C2C9',  '#F0DFC2',  '#C2C3F0', '#E1C2F0',  '#D1F0C2',  '#C1C1E3',  '#C1E0E3',  '#E3ACAC', '#E3ACD4',  '#ACE3C0',  '#ACE3D5',  '#E3C2AC',  '#E3ACCB', '#D2C2F0',  '#E0F0C2',  '#F0C2C9',  '#F0DFC2']
-    var num = Math.floor((Math.random() * colorArray.length));
-    return colorArray[num]
-  }
 
   this.metersToMiles = function (m) {
     var miles = (m * 0.00062137).toFixed(2);
@@ -98,7 +117,7 @@ app.controller("BarController", [ "$http", "$scope", function ($http, $scope) {
 
         });
     })
-  } // end of callBars function
+  } // end of function
 
 
   // Root will automatically post all bars near you
@@ -127,15 +146,14 @@ app.controller("BarController", [ "$http", "$scope", function ($http, $scope) {
 
 
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////        CLUB CONTROLLER        ////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 app.controller("ClubController", [ "$http", "$scope", function ($http, $scope) {
   ctrl = this
-
-  ctrl.color = function () {
-    var colorArray =  [ '#C2F0E9', '#D2C2F0',  '#E0F0C2',  '#F0C2C9',  '#F0DFC2',  '#C2C3F0', '#E1C2F0',  '#D1F0C2',  '#C1C1E3',  '#C1E0E3',  '#E3ACAC', '#E3ACD4',  '#ACE3C0',  '#ACE3D5',  '#E3C2AC',  '#E3ACCB', '#D2C2F0',  '#E0F0C2',  '#F0C2C9',  '#F0DFC2']
-    var num = Math.floor((Math.random() * colorArray.length));
-    return colorArray[num]
-  }
-
 
   this.metersToMiles = function (m) {
     var miles = (m * 0.00062137).toFixed(2);
@@ -143,7 +161,7 @@ app.controller("ClubController", [ "$http", "$scope", function ($http, $scope) {
   }
 
   var callClubs = function () {
-    var terms = "clubs"
+    var terms = "night clubs"
     console.log("CALLING CLUBS");
     var accessor = {
         consumerSecret: auth.consumerSecret,
@@ -184,7 +202,7 @@ app.controller("ClubController", [ "$http", "$scope", function ($http, $scope) {
 
         });
     })
-  } // end of callBars function
+  } // end of function
 
 
   // Root will automatically post all bars near you
@@ -193,6 +211,340 @@ app.controller("ClubController", [ "$http", "$scope", function ($http, $scope) {
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
       callClubs();
+    }
+
+    function geo_error(error) {
+     alert('ERROR(' + error.code + '): ' + error.message);
+    };
+
+    var geo_options = {
+      enableHighAccuracy: true,
+      maximumAge        : 30000,
+      timeout           : 27000
+    };
+
+    navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
+  })
+}])
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////        SPORTS CONTROLLER        ///////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+app.controller("SportsController", [ "$http", "$scope", function ($http, $scope) {
+  ctrl = this
+
+  this.metersToMiles = function (m) {
+    var miles = (m * 0.00062137).toFixed(2);
+    return miles
+  }
+
+  var callSports = function () {
+    var terms = "sports bars"
+    console.log("CALLING SPORTS");
+    var accessor = {
+        consumerSecret: auth.consumerSecret,
+        tokenSecret: auth.accessTokenSecret
+    };
+    parameters = [];
+    parameters.push(['term', terms]);
+    parameters.push(['ll', latitude + ", " + longitude]);
+    parameters.push(['limit', 20]);
+    parameters.push(['sort', 1]);
+    parameters.push(['callback', 'cb']);
+    parameters.push(['oauth_consumer_key', auth.consumerKey]);
+    parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+    parameters.push(['oauth_token', auth.accessToken]);
+    parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+    var message = {
+        'action': 'https://api.yelp.com/v2/search',
+        'method': 'GET',
+        'parameters': parameters
+    };
+    OAuth.setTimestampAndNonce(message);
+    OAuth.SignatureMethod.sign(message, accessor);
+    var parameterMap = OAuth.getParameterMap(message.parameters);
+    parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
+
+    // send the request to yelp
+    $.ajax({
+      'url': message.action,
+      'data': parameterMap,
+      'cache': true,
+      'dataType': 'jsonp',
+      'jsonpCallback': 'cb'
+    }).success(function(data, textStats, XMLHttpRequest) {
+        $scope.$apply(function () {
+          $scope.sportCtrl.bars = data.businesses;
+          $('.loading-container').empty();
+          console.log(data.businesses);
+
+        });
+    })
+  } // end of function
+
+
+  // Root will automatically post all bars near you
+  $http.get("/").success(function () {
+    function geo_success(position) {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      callSports();
+    }
+
+    function geo_error(error) {
+     alert('ERROR(' + error.code + '): ' + error.message);
+    };
+
+    var geo_options = {
+      enableHighAccuracy: true,
+      maximumAge        : 30000,
+      timeout           : 27000
+    };
+
+    navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
+  })
+}])
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////        GAY CONTROLLER        ///////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+app.controller("GayController", [ "$http", "$scope", function ($http, $scope) {
+  ctrl = this
+
+  this.metersToMiles = function (m) {
+    var miles = (m * 0.00062137).toFixed(2);
+    return miles
+  }
+
+  var callGay = function () {
+    var terms = "gay bars"
+    console.log("CALLING Gay");
+    var accessor = {
+        consumerSecret: auth.consumerSecret,
+        tokenSecret: auth.accessTokenSecret
+    };
+    parameters = [];
+    parameters.push(['term', terms]);
+    parameters.push(['ll', latitude + ", " + longitude]);
+    parameters.push(['limit', 20]);
+    parameters.push(['sort', 1]);
+    parameters.push(['callback', 'cb']);
+    parameters.push(['oauth_consumer_key', auth.consumerKey]);
+    parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+    parameters.push(['oauth_token', auth.accessToken]);
+    parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+    var message = {
+        'action': 'https://api.yelp.com/v2/search',
+        'method': 'GET',
+        'parameters': parameters
+    };
+    OAuth.setTimestampAndNonce(message);
+    OAuth.SignatureMethod.sign(message, accessor);
+    var parameterMap = OAuth.getParameterMap(message.parameters);
+    parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
+
+    // send the request to yelp
+    $.ajax({
+      'url': message.action,
+      'data': parameterMap,
+      'cache': true,
+      'dataType': 'jsonp',
+      'jsonpCallback': 'cb'
+    }).success(function(data, textStats, XMLHttpRequest) {
+        $scope.$apply(function () {
+          $scope.gayCtrl.bars = data.businesses;
+          $('.loading-container').empty();
+          console.log(data.businesses);
+
+        });
+    })
+  } // end of function
+
+
+  // Root will automatically post all bars near you
+  $http.get("/").success(function () {
+    function geo_success(position) {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      callGay();
+    }
+
+    function geo_error(error) {
+     alert('ERROR(' + error.code + '): ' + error.message);
+    };
+
+    var geo_options = {
+      enableHighAccuracy: true,
+      maximumAge        : 30000,
+      timeout           : 27000
+    };
+
+    navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
+  })
+}])
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////        DIVE CONTROLLER        ////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+app.controller("DiveController", [ "$http", "$scope", function ($http, $scope) {
+  ctrl = this
+
+  this.metersToMiles = function (m) {
+    var miles = (m * 0.00062137).toFixed(2);
+    return miles
+  }
+
+  var callDive = function () {
+    var terms = "dive bars"
+    console.log("CALLING DIVE");
+    var accessor = {
+        consumerSecret: auth.consumerSecret,
+        tokenSecret: auth.accessTokenSecret
+    };
+    parameters = [];
+    parameters.push(['term', terms]);
+    parameters.push(['ll', latitude + ", " + longitude]);
+    parameters.push(['limit', 20]);
+    parameters.push(['sort', 1]);
+    parameters.push(['callback', 'cb']);
+    parameters.push(['oauth_consumer_key', auth.consumerKey]);
+    parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+    parameters.push(['oauth_token', auth.accessToken]);
+    parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+    var message = {
+        'action': 'https://api.yelp.com/v2/search',
+        'method': 'GET',
+        'parameters': parameters
+    };
+    OAuth.setTimestampAndNonce(message);
+    OAuth.SignatureMethod.sign(message, accessor);
+    var parameterMap = OAuth.getParameterMap(message.parameters);
+    parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
+
+    // send the request to yelp
+    $.ajax({
+      'url': message.action,
+      'data': parameterMap,
+      'cache': true,
+      'dataType': 'jsonp',
+      'jsonpCallback': 'cb'
+    }).success(function(data, textStats, XMLHttpRequest) {
+        $scope.$apply(function () {
+          $scope.diveCtrl.bars = data.businesses;
+          $('.loading-container').empty();
+          console.log(data.businesses);
+
+        });
+    })
+  } // end of function
+
+
+  // Root will automatically post all bars near you
+  $http.get("/").success(function () {
+    function geo_success(position) {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      callDive();
+    }
+
+    function geo_error(error) {
+     alert('ERROR(' + error.code + '): ' + error.message);
+    };
+
+    var geo_options = {
+      enableHighAccuracy: true,
+      maximumAge        : 30000,
+      timeout           : 27000
+    };
+
+    navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
+  })
+}])
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////        KARAOKE CONTROLLER        /////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+app.controller("KaraokeController", [ "$http", "$scope", function ($http, $scope) {
+  ctrl = this
+
+  this.metersToMiles = function (m) {
+    var miles = (m * 0.00062137).toFixed(2);
+    return miles
+  }
+
+  var callKaraoke = function () {
+    var terms = "karaoke bars"
+    console.log("CALLING KARAOKE");
+    var accessor = {
+        consumerSecret: auth.consumerSecret,
+        tokenSecret: auth.accessTokenSecret
+    };
+    parameters = [];
+    parameters.push(['term', terms]);
+    parameters.push(['ll', latitude + ", " + longitude]);
+    parameters.push(['limit', 20]);
+    parameters.push(['sort', 1]);
+    parameters.push(['callback', 'cb']);
+    parameters.push(['oauth_consumer_key', auth.consumerKey]);
+    parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+    parameters.push(['oauth_token', auth.accessToken]);
+    parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+    var message = {
+        'action': 'https://api.yelp.com/v2/search',
+        'method': 'GET',
+        'parameters': parameters
+    };
+    OAuth.setTimestampAndNonce(message);
+    OAuth.SignatureMethod.sign(message, accessor);
+    var parameterMap = OAuth.getParameterMap(message.parameters);
+    parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
+
+    // send the request to yelp
+    $.ajax({
+      'url': message.action,
+      'data': parameterMap,
+      'cache': true,
+      'dataType': 'jsonp',
+      'jsonpCallback': 'cb'
+    }).success(function(data, textStats, XMLHttpRequest) {
+        $scope.$apply(function () {
+          $scope.karaokeCtrl.bars = data.businesses;
+          $('.loading-container').empty();
+          console.log(data.businesses);
+
+        });
+    })
+  } // end of function
+
+
+  // Root will automatically post all bars near you
+  $http.get("/").success(function () {
+    function geo_success(position) {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      callKaraoke();
     }
 
     function geo_error(error) {

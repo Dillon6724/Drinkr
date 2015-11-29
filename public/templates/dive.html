@@ -1,0 +1,47 @@
+<div class="bar-container">
+  <div ng-click="more = !more " class="bar fadein" ng-repeat="bar in diveCtrl.bars">
+    <div ng-show="more">
+      <img class="icon" src="cocktail.png"/>
+      <ul  class="extra-info">
+        <li class="extra-info-item extra-name">{{bar.name}}</li>
+        <li class="extra-info-item">categories</li>
+        <li class="extra-info-item category" ng-repeat="category in bar.categories">{{category[0]}}</li>
+        <li class="extra-info-item">phone</li>
+        <li class="extra-info-item category">{{bar.display_phone}}</li>
+      </ul>
+    </div>
+    <div ng-show="!more" >
+      <img class="icon" src="cocktail.png"/>
+      <ul class="bar-info">
+        <li class="info-item name">{{bar.name}}</li>
+        <li class="info-item distance">{{diveCtrl.metersToMiles(bar.distance)}} miles away</li>
+        <li class="info-item rating"><img src="{{bar.rating_img_url_large}}" /></li>
+        <a target="_blank" class="directions" href="https://www.google.com/maps/dir//{{bar.location.address[0]}} {{bar.location.city}} {{bar.location.state_code}}/">directions</a>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="loading-container">
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+  <img class="loading" src="loading.gif" />
+</div>
