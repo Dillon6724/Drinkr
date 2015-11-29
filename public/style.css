@@ -48,7 +48,7 @@ ul {
   display: inline-block;
   vertical-align:top;
   text-align: center;
-  border-radius: 17%;
+  border-radius: 9%;
   box-shadow: inset 4em 5em 4em -2em #DAF0EC;
   margin-bottom: 1.5%;
   overflow: scroll;
@@ -64,12 +64,12 @@ ul {
 .bar-info {
   color: #6E6E6E;
   position: relative;
-  margin-top: -68%;
+  margin-top: -72%;
 }
 
 
 .info-item {
-  font-size: 52px;
+  font-size: 48px;
   margin-bottom: 4%;
 }
 
@@ -93,6 +93,7 @@ ul {
 
 .name, .extra-name {
   font-weight: bold;
+  margin-top: -2%;
 }
 
 .extra-name {
