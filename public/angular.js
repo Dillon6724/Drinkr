@@ -548,7 +548,7 @@ app.controller("KaraokeController", [ "$http", "$scope", function ($http, $scope
     }
 
     function geo_error(error) {
-     alert('ERROR(' + error.code + '): ' + error.message);
+     alert('ERROR(' + error.code + '): ' + error.message + " Please change your location settings on your device");
     };
 
     var geo_options = {

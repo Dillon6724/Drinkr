@@ -173,7 +173,7 @@ ul {
 
 @media all and (min-width: 1000px)  {
   .title {
-    height: 50px;
+    height: 58px;
     font-size: 45px;
     line-height: 51px;
   }
@@ -212,8 +212,13 @@ ul {
     margin-top: 5%;
   }
 
-  .info-item {
+  .info-item, .extra-info-item {
     font-size: 30px;
     margin-bottom: 6%;
   }
+
+  .extra-name {
+    margin-bottom: 1%;
+  }
+
 }
