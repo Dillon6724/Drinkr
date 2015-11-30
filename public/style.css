@@ -1,224 +1,281 @@
-* {
-  margin: 0px;
-  padding: 0px;
+*
+{
+    margin: 0;
+    padding: 0;
 }
 
-body {
-  font-family: 'ABeeZee', sans-serif;
-  background-color: ghostwhite;
+body
+{
+    font-family: 'ABeeZee', sans-serif;
+
+    background-color: ghostwhite;
 }
 
-ul {
-  list-style-type: none;
+ul
+{
+    list-style-type: none;
 }
 
-.title {
-  color: #B4DED6;
-  font-weight: 100;
-  background-color: #f2f2f2;
-  width: 100%;
-  font-size: 120px;
-  text-align: center;
-  top: 0px;
-  left: 0px;
-  height: 150px;
-  line-height: 165px;
-  position: fixed;
-  z-index: 10;
-  font-family: 'Pacifico', cursive;
-  border-bottom: 1px solid grey;
+.title
+{
+    font-family: 'Pacifico', cursive;
+    font-size: 120px;
+    font-weight: 100;
+    line-height: 165px;
+
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 150px;
+
+    text-align: center;
+
+    color: #b4ded6;
+    border-bottom: 1px solid grey;
+    background-color: #f2f2f2;
 }
 
-.bar-container, .loading-container {
-  width: 98%;
-  margin: 0 auto;
-  margin-top: 17%;
+.bar-container,
+.loading-container
+{
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 17%;
 }
 
-.icon {
-  width: 64%;
-  opacity: 0.2;
-  margin-top: 10%;
+.icon
+{
+    width: 64%;
+    margin-top: 10%;
+
+    opacity: .2;
 }
 
-.bar {
-  width: 49%;
-  margin: .5%;
-  height: 430px;
-  display: inline-block;
-  vertical-align:top;
-  text-align: center;
-  border-radius: 9%;
-  box-shadow: inset 4em 5em 4em -2em #DAF0EC;
-  overflow: scroll;
-  background-color: #B4DED6;
+.bar
+{
+    display: inline-block;
+    overflow: scroll;
+
+    width: 49%;
+    height: 430px;
+    margin: .5%;
+
+    text-align: center;
+    vertical-align: top;
+
+    border-radius: 9%;
+    background-color: #b4ded6;
+    box-shadow: inset 4em 5em 4em -2em #daf0ec;
 }
 
-.loading {
-  width: 4%;
-  margin: 22%;
-  display: inline-block;
+.loading
+{
+    display: inline-block;
+
+    width: 4%;
+    margin: 22%;
 }
 
-.bar-info {
-  color: #6E6E6E;
-  position: relative;
-  margin-top: -72%;
-}
+.bar-info
+{
+    position: relative;
 
+    margin-top: -72%;
 
-.info-item {
-  font-size: 48px;
-  margin-bottom: 4%;
-}
-
-.extra-info-item {
-  font-size: 52px;
-  margin-bottom: 2%;
-}
-
-.name, .extra-name {
-  font-weight: bold;
-  margin-top: -2%;
-}
-
-.extra-name {
-  padding: 2%;
-}
-
-.rating, .distance, .category {
-  font-size: 40px;
-}
-
-.fadein {
-  animation: fade 2s;
-}
-
-@keyframes fade {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-.extra-info {
-  color: #6E6E6E;
-  background-color: #D6CCED;
-  padding-bottom: 21%;
-  margin-top: -75%;
-  box-shadow: inset 4em 5em 4em -2em #EAE4F7;
-
-
-}
-
-.nav-item {
-  position: relative;
-  z-index: 11;
-  margin-top: 7%;
-  margin-left: 4%;
-
-}
-
-.nav-link {
-  color: ghostwhite;
-  font-size: 54px;
-  text-decoration: none;
-}
-
-.menu {
-  width: 50%;
-  position: fixed;
-  background-color: #D69CAB;
-  height: 50vh;
-  z-index: 10;
-  left: -900px;
-  border-radius: 10%;
-  box-shadow: inset 3em 3em 5em 2em #DBABB8;
-}
-
-.menu-hide {
-  z-index: 30;
-  top: 158px;
-  left: 68px;
-}
-
-.burger {
-  background-color: #B4DED6 ;
-  border-radius: 20%;
-  position: fixed;
-  top: 24px;
-  left: 46px;
-  z-index: 20;
-  width: 11%;
-}
-
-.map {
-  width: 15%;
-  margin-top: -5%;
+    color: #6e6e6e;
 }
 
 
+.info-item
+{
+    font-size: 48px;
 
+    margin-bottom: 4%;
+}
 
+.extra-info-item
+{
+    font-size: 52px;
 
+    margin-bottom: 2%;
+}
 
+.name,
+.extra-name
+{
+    font-weight: bold;
 
+    margin-top: -2%;
+}
 
+.extra-name
+{
+    padding: 2%;
+}
 
+.rating,
+.distance,
+.category
+{
+    font-size: 40px;
+}
 
+.fadein
+{
+    animation: fade 2s;
+}
 
+@keyframes fade
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
 
+.extra-info
+{
+    margin-top: -75%;
+    padding-bottom: 21%;
 
+    color: #6e6e6e;
+    background-color: #d6cced;
+    box-shadow: inset 4em 5em 4em -2em #eae4f7;
+}
 
+.nav-item
+{
+    position: relative;
+    z-index: 11;
 
+    margin-top: 7%;
+    margin-left: 4%;
+}
 
+.nav-link
+{
+    font-size: 54px;
 
-@media all and (min-width: 1000px)  {
-  .title {
-    height: 58px;
-    font-size: 45px;
-    line-height: 51px;
-  }
+    text-decoration: none;
 
-  .burger {
-    width: 3%;
-    top: 7px;
-  }
+    color: ghostwhite;
+}
 
-  .menu {
-    width: 16%;
-    top: 45px;
+.menu
+{
+    position: fixed;
+    z-index: 10;
+    left: -900px;
+
+    width: 50%;
     height: 50vh;
-  }
 
-  .nav-link {
-    font-size: 25px;
-  }
+    border-radius: 10%;
+    background-color: #d69cab;
+    box-shadow: inset 3em 3em 5em 2em #dbabb8;
+}
+
+.menu-hide
+{
+    z-index: 30;
+    top: 158px;
+    left: 68px;
+}
+
+.burger
+{
+    position: fixed;
+    z-index: 20;
+    top: 24px;
+    left: 46px;
+
+    width: 11%;
+
+    border-radius: 20%;
+    background-color: #b4ded6 ;
+}
+
+.map
+{
+    width: 15%;
+    margin-top: -5%;
+}
 
 
-  .bar, .loading {
-    width: 30%;
-    margin: 1.5%;
-    height: 325px;
-  }
+/************************************************/
+/*********   MEDIA QUERY FOR WEB PAGE   *********/
+/************************************************/
 
-  .loading {
-    width: 5%;
-    height: 50px;
-    margin: 14%;
-    margin-top: 0%;
-    margin-bottom: 30%;
-  }
+@media all and (min-width: 1000px)
+{
+    .title
+    {
+        font-size: 45px;
+        line-height: 51px;
 
-  .bar-container {
-    margin-top: 5%;
-  }
+        height: 58px;
+    }
 
-  .info-item, .extra-info-item {
-    font-size: 30px;
-    margin-bottom: 6%;
-  }
+    .burger
+    {
+        top: 7px;
 
-  .extra-name {
-    margin-bottom: 1%;
-  }
+        width: 3%;
+    }
 
+    .menu
+    {
+        top: 45px;
+
+        width: 16%;
+        height: 50vh;
+    }
+
+    .nav-link
+    {
+        font-size: 25px;
+    }
+
+
+    .bar,
+    .loading
+    {
+        width: 30%;
+        height: 325px;
+        margin: 1.5%;
+    }
+
+    .loading
+    {
+        width: 5%;
+        height: 50px;
+        margin: 14%;
+        margin-top: 0;
+        margin-bottom: 30%;
+    }
+
+    .bar-container
+    {
+        margin-top: 5%;
+    }
+
+    .info-item,
+    .extra-info-item
+    {
+        font-size: 30px;
+
+        margin-bottom: 6%;
+    }
+
+    .extra-name
+    {
+        margin-bottom: 1%;
+    }
 }

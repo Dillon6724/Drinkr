@@ -539,7 +539,7 @@ app.controller("KaraokeController", [ "$http", "$scope", function ($http, $scope
   } // end of function
 
 
-  // Root will automatically post all bars near you
+  // Root will automatically post all "bars" near you
   $http.get("/").success(function () {
     function geo_success(position) {
       latitude = position.coords.latitude;
@@ -548,7 +548,7 @@ app.controller("KaraokeController", [ "$http", "$scope", function ($http, $scope
     }
 
     function geo_error(error) {
-     alert('ERROR(' + error.code + '): ' + error.message + " Please change your location settings on your device");
+     alert('ERROR(' + error.code + '): ' + error.message + " Please adjust your location settings on your device");
     };
 
     var geo_options = {

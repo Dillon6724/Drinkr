@@ -20,25 +20,21 @@
 
 </head>
 <body>
+  <img class="menu-trigger burger" src="burger.png"/>
+  <ul class="menu">
+    <li class="menu-trigger nav-item"><a class="nav-link">search</a><hr/></li>
+    <li class="menu-trigger nav-item"><a class="nav-link" href="/">bars</a></li>
+    <li class="menu-trigger nav-item"><a class="nav-link" href="/clubs">clubs</a></li>
+    <li class="menu-trigger nav-item"><a class="nav-link" href="/sports">sports bars</a></li>
+    <li class="menu-trigger nav-item"><a class="nav-link" href="/gay">gay bars</a></li>
+    <li class="menu-trigger nav-item"><a class="nav-link" href="/dive">dive bars</a></li>
+    <li class="menu-trigger nav-item"><a class="nav-link" href="/karaoke">karaoke bars</a></li>
+  </ul>
+  <h1 class="title">drinkr</h1>
 
-        <img class="menu-trigger burger" src="burger.png"/>
-        <ul class="menu">
-          <li class="menu-trigger nav-item"><a class="nav-link">search</a><hr/></li>
-          <li class="menu-trigger nav-item"><a class="nav-link" href="/">bars</a></li>
-          <li class="menu-trigger nav-item"><a class="nav-link" href="/clubs">clubs</a></li>
-          <li class="menu-trigger nav-item"><a class="nav-link" href="/sports">sports bars</a></li>
-          <li class="menu-trigger nav-item"><a class="nav-link" href="/gay">gay bars</a></li>
-          <li class="menu-trigger nav-item"><a class="nav-link" href="/dive">dive bars</a></li>
-          <li class="menu-trigger nav-item"><a class="nav-link" href="/karaoke">karaoke bars</a></li>
-        </ul>
+  <div ng-view></div>
 
-    <h1 class="title">drinkr</h1>
-
-    <div ng-view></div>
-
-  <script type="text/javascript" src="app.js">
-
-  </script>
+  <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript" src="angular.js"></script>
 </body>
 </html>
