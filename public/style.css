@@ -50,7 +50,6 @@ ul {
   text-align: center;
   border-radius: 9%;
   box-shadow: inset 4em 5em 4em -2em #DAF0EC;
-  margin-bottom: 1.5%;
   overflow: scroll;
   background-color: #B4DED6;
 }
@@ -78,19 +77,6 @@ ul {
   margin-bottom: 2%;
 }
 
-
-.directions {
-  border: 1px solid #6E6E6E;
-  border-radius: 10%;
-  padding: 1%;
-  text-decoration: none;
-  color: #6E6E6E;
-  font-size: 40px;
-  background-color: #f2f2f2;
-  z-index: 5;
-  margin-top: 2%;
-}
-
 .name, .extra-name {
   font-weight: bold;
   margin-top: -2%;
@@ -108,20 +94,9 @@ ul {
   animation: fade 2s;
 }
 
-.slideup {
-  animation: slideup 4s;
-  background-color: blue;
-
-}
-
 @keyframes fade {
   0% {opacity: 0;}
   100% {opacity: 1;}
-}
-
-@keyframes slideup {
-  0% {max-height: 0;}
-  100% {max-height: 300px;}
 }
 
 .extra-info {
@@ -178,4 +153,67 @@ ul {
 .map {
   width: 15%;
   margin-top: -5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 1000px)  {
+  .title {
+    height: 50px;
+    font-size: 45px;
+    line-height: 51px;
+  }
+
+  .burger {
+    width: 3%;
+    top: 7px;
+  }
+
+  .menu {
+    width: 16%;
+    top: 45px;
+    height: 50vh;
+  }
+
+  .nav-link {
+    font-size: 25px;
+  }
+
+
+  .bar, .loading {
+    width: 30%;
+    margin: 1.5%;
+    height: 325px;
+  }
+
+  .loading {
+    width: 5%;
+    height: 50px;
+    margin: 14%;
+    margin-top: 0%;
+    margin-bottom: 30%;
+  }
+
+  .bar-container {
+    margin-top: 5%;
+  }
+
+  .info-item {
+    font-size: 30px;
+    margin-bottom: 6%;
+  }
 }

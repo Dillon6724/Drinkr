@@ -16,7 +16,9 @@
         <li class="info-item name">{{bar.name}}</li>
         <li class="info-item distance">{{karaokeCtrl.metersToMiles(bar.distance)}} miles away</li>
         <li class="info-item rating"><img src="{{bar.rating_img_url_large}}" /></li>
-        <a target="_blank" class="directions" href="https://www.google.com/maps/dir//{{bar.location.address[0]}} {{bar.location.city}} {{bar.location.state_code}}/">directions</a>
+        <a target="_blank" class="directions" href="https://www.google.com/maps/dir//{{bar.location.address[0]}} {{bar.location.city}} {{bar.location.state_code}}/">
+          <div class="bar-container">
+        </a>
       </ul>
     </div>
   </div>
